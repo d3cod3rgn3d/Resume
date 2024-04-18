@@ -26,5 +26,26 @@ def projects():
 def contact():
     return render_template('contact.html')
 
+# Route to handle form submission
+@app.route('/submit_form', methods=['POST'])
+def submit_form():
+    if request.method == 'POST':
+        # Access form data
+        name = request.form['name']
+        email = request.form['email']
+        message = request.form['message']
+        
+        # Process form data (e.g., save to database, send email, etc.)
+        # For demonstration purposes, let's just print the data
+        print(f"Name: {name}, Email: {email}, Message: {message}")
+        
+        # Redirect user to the submit_form.html template
+        return redirect(url_for('submit_form'))
+
+@app.route('/submit_form')
+def submit_form_page():
+    return render_template('submit_form.html')
+
+
 if __name__ == '__main__':
     app.run()
