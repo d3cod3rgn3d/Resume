@@ -1,0 +1,4 @@
+__pycache__/
+venv/
+.env
+.vscode/  # Add any other directories or files you want to ignore
